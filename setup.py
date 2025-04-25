@@ -18,7 +18,7 @@ setup(
       'Topic :: Scientific/Engineering :: Bio-Informatics'
     ],
     scripts=[
-             'bin/deepmhci',
+            #  'bin/deepmhci',
              'bin/deepmhcii',
              ],
     test_suite="nose.collector",
