@@ -1,0 +1,6 @@
+include deepmhc/deepmhcii/*
+include deepmhc/configure/*
+include deepmhc/data/*
+include deepmhc/models/mhci/*
+include deepmhc/models/mhcii/*
+exclude deepmhc/main.py

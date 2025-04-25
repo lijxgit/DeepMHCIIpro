@@ -1,0 +1,6 @@
+mhc_seq: MHCII_pseudosequence.2023.all.X.dat
+allele_list: MHCII_allelelist.txt
+threshold_woc_ba: MHCII_threshold_woCBA.json
+threshold_woc_el: MHCII_threshold_woCEL.json
+threshold_wc_ba: MHCII_threshold_wCBA.json
+threshold_wc_el: MHCII_threshold_wCEL.json
