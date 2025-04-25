@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='deepmhc',
+    name='deepmhcpro',
     version='1.0.1',
     description='DeepMHC: Peptide MHC binding and presentation prediction for class I and II',
-    packages=find_packages(exclude=['results']),
+    packages=find_packages(exclude=['results'], include=["deepmhc"]),
     exclude_package_data={"deepmhc": ["main.py"]},
     include_package_data=True,
     author='Jinxing Li, Wei Qu, Ronghui You, Shanfeng zhu',
