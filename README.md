@@ -8,7 +8,7 @@ DeepMHCIIpro is a high-performance structure-aware deep interaction model reveal
 ###### Pip installation (release version with model weights)
 ```bash
 pip install deepmhcpro-1.0.1-py3-none-any.whl
-deepmhcpro -h 
+deepmhcpro --help 
 ```
 ###### Source code installation (without model weights)
 ```bash
@@ -18,7 +18,7 @@ conda create -n DeepMHCIIpro python=3.9.19
 conda activate DeepMHCIIpro
 wget -O model-weights.zip "https://zenodo.org/records/15280831/files/model-weights.zip?download=1"
 unzip model-weights.zip && mv mhcii/ deepmhc/models/ 
-./deepmhcpro -h 
+./deepmhcpro --help 
 ```
 
 ## Data and model weights
