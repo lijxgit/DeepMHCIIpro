@@ -51,8 +51,8 @@ def get_metrics(mhc_names, targets, scores, pos_num) -> None:
     mhc_names, targets, scores, metrics = np.asarray(mhc_names), np.asarray(targets), np.asarray(scores), []
     mhc_groups, auc, auc01, pcc, srcc, aupr = get_group_metrics(mhc_names, targets, scores, reduce=False, pos_num=pos_num)
     for mhc_name_, auc_, auc01_, pcc_, srcc_, aupr_ in zip(mhc_groups, auc, auc01, pcc, srcc, aupr):
-        t_ = targets[mhc_names == mhc_name_]
-        print(mhc_name_, len(t_), len(t_[t_ >= CUTOFF]), auc_, auc01_, pcc_, srcc_, aupr_)
+        # t_ = targets[mhc_names == mhc_name_]
+        # print(mhc_name_, len(t_), len(t_[t_ >= CUTOFF]), auc_, auc01_, pcc_, srcc_, aupr_)
         metrics.append((auc_, auc01_, pcc_, srcc_, aupr_))
     metrics = np.mean(metrics, axis=0)
     logger.info(f'AUC: {metrics[0]:3f} AUC01: {metrics[1]:3f} PCC: {metrics[2]:3f} SRCC: {metrics[3]:3f} AUPR: {metrics[4]:3f}')
