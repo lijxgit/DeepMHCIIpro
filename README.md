@@ -5,16 +5,20 @@ DeepMHCIIpro is a high-performance structure-aware deep interaction model reveal
 ![model](./figures/DeepMHCIIpro.png)
 
 ## Installation
-###### Pip installation
+###### Pip installation (release version with model weights)
 ```bash
-pip install deepmhc-1.0.1-py3-none-any.whl
+pip install deepmhcpro-1.0.1-py3-none-any.whl
+deepmhcpro -h 
 ```
-###### Source code installation
+###### Source code installation (without model weights)
 ```bash
 git clone https://github.com/lijxgit/DeepMHCIIpro.git
+cd DeepMHCIIpro
 conda create -n DeepMHCIIpro python=3.9.19
 conda activate DeepMHCIIpro
-python setup.py install
+wget -O model-weights.zip "https://zenodo.org/records/15280831/files/model-weights.zip?download=1"
+unzip model-weights.zip && mv mhcii/ deepmhc/models/ 
+./deepmhcpro -h 
 ```
 
 ## Data and model weights
@@ -43,44 +47,44 @@ DeepMHCIIpro/
 ###### Single-allele presentation prediction with evaluation
 ```bash
 # No context information 
-./deepmhcii -i ./data/indep/SA2023.txt -w PMC -m EL -r \
+./deepmhcpro -i ./data/indep/SA2023.txt -w PMC -m EL -r \
 --evaluation
 # Use context information
-./deepmhcii -i ./data/indep/SA2023.txt -w PMC -m EL -r -c \
+./deepmhcpro -i ./data/indep/SA2023.txt -w PMC -m EL -r -c \
 --evaluation
 ```
 ###### Multi-allele antigen presentation prediction with evaluation
 ```bash
 # No context information 
-./deepmhcii -i ./data/indep/MA2024.txt -w PMC -m EL -r \
+./deepmhcpro -i ./data/indep/MA2024.txt -w PMC -m EL -r \
 --evaluation
 # Use context information
-./deepmhcii -i ./data/indep/MA2024.txt -w PMC -m EL -r -c \
+./deepmhcpro -i ./data/indep/MA2024.txt -w PMC -m EL -r -c \
 --evaluation
 ```
 ###### Microbial antigen presentation prediction with evaluation
 ```bash
-./deepmhcii -i ./data/indep/MBL2023.txt -w PMC -m EL -r --verbose
+./deepmhcpro -i ./data/indep/MBL2023.txt -w PMC -m EL -r --verbose
 ```
 ###### CD4+ T cell epitope prediction with evaluation (SA; artificial negatives)
 ```bash
-./deepmhcii -i ./data/indep/EPI2023.txt -w PMC -m Epi -r --verbose \
+./deepmhcpro -i ./data/indep/EPI2023.txt -w PMC -m Epi -r --verbose \
 --evaluation
 ```
 ###### Immunogenicity test prediction with evaluation (SA; natural negatives)
 ```bash
-./deepmhcii -i ./data/finetune/immun_test.txt -w PMC-Immu -m EL -r --verbose \
+./deepmhcpro -i ./data/finetune/immun_test.txt -w PMC-Immu -m EL -r --verbose \
 --evaluation
 
-./deepmhcii -i ./data/finetune/immun_test.txt -w PMC -m EL -r --verbose \
+./deepmhcpro -i ./data/finetune/immun_test.txt -w PMC -m EL -r --verbose \
 --evaluation
 ```
 ###### Neoepitope immunogenicity prediction with evaluation (MA; artificial negatives)
 ```bash
-./deepmhcii -i ./data/indep/NEO2019.15.txt -w PMC-Immu -m EL -r --max-pool --verbose \
+./deepmhcpro -i ./data/indep/NEO2019.15.txt -w PMC-Immu -m EL -r --max-pool --verbose \
 --evaluation
 
-./deepmhcii -i ./data/indep/NEO2019.15.txt -w PMC -m Epi -r --max-pool --verbose \
+./deepmhcpro -i ./data/indep/NEO2019.15.txt -w PMC -m Epi -r --max-pool --verbose \
 --evaluation
 ```
 Since our model was fine-tuned only on single-allele immunogenic data, so we 
@@ -88,12 +92,12 @@ utilize max-pooling method to handle MA immunogenic test data.
 ###### Generate sequence logos for MHC-II specificity (motif preference)
 ```bash
 # Single Specificity
-./deepmhcii -i ./data/random/seq2logo.txt -w PMC -m EL -a DRB1_0101 --motif "./figures/DRB1_0101.png"
+./deepmhcpro -i ./data/random/seq2logo.txt -w PMC -m EL -a DRB1_0101 --motif "./figures/DRB1_0101.png"
 # Canonical and Reverse Binding Speficity
-./deepmhcii -i ./data/random/seq2logo.txt -w PMC -m EL -r -a HLA-DPA10202-DPB10202 --motif "./figures/DPA10202_DPB10202.png"
+./deepmhcpro -i ./data/random/seq2logo.txt -w PMC -m EL -r -a HLA-DPA10202-DPB10202 --motif "./figures/DPA10202_DPB10202.png"
 # P4-speficity and P6-speficity in Bi-speficity -> Electron / Hydorgen Bond
-./deepmhcii -i ./data/random/seq2logo.txt -w PMC -m EL -r -a DRB1_0801 --motif "./figures/DRB1_0801.png" --mask B28
-./deepmhcii -i ./data/random/seq2logo.txt -w PMC -m EL -r -a DRB1_1402 --motif "./figures/DRB1_1402.png" --mask B13
+./deepmhcpro -i ./data/random/seq2logo.txt -w PMC -m EL -r -a DRB1_0801 --motif "./figures/DRB1_0801.png" --mask B28
+./deepmhcpro -i ./data/random/seq2logo.txt -w PMC -m EL -r -a DRB1_1402 --motif "./figures/DRB1_1402.png" --mask B13
 ```
 <p align="center">
   <img src="./figures/DRB1_0101.png" width="22%" />

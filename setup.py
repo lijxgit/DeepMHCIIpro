@@ -17,10 +17,16 @@ setup(
       'Intended Audience :: Science/Research',
       'Topic :: Scientific/Engineering :: Bio-Informatics'
     ],
-    scripts=[
-            #  'bin/deepmhci',
-             'bin/deepmhcii',
-             ],
+    # scripts=[
+    #         #  'bin/deepmhci',
+    #          'bin/deepmhcii',
+    #          ],
+    entry_points={
+      'console_scripts': [
+          # 'deepmhci=deepmhc.deepmhcipro:main_process',
+          'deepmhcpro=deepmhc.deepmhciipro:main_process',
+      ],
+    },
     test_suite="nose.collector",
     tests_require=['nose'],
     install_requires=[
