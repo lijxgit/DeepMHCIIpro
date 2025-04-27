@@ -10,12 +10,11 @@ DeepMHCIIpro is a high-performance structure-aware deep interaction model reveal
 pip install deepmhcpro-1.0.1-py3-none-any.whl
 deepmhcpro --help 
 ```
-###### Source code installation (without model weights)
+###### Source code installation (seperately download model weights)
 ```bash
-git clone https://github.com/lijxgit/DeepMHCIIpro.git
-cd DeepMHCIIpro
-conda create -n DeepMHCIIpro python=3.9.19
-conda activate DeepMHCIIpro
+git clone https://github.com/lijxgit/DeepMHCIIpro.git && cd DeepMHCIIpro
+conda env create -f environment.yaml
+conda activate DeepMHCIIpro 
 wget -O model-weights.zip "https://zenodo.org/records/15280831/files/model-weights.zip?download=1"
 unzip model-weights.zip && mv mhcii/ deepmhc/models/ 
 ./deepmhcpro --help 
@@ -28,7 +27,6 @@ The following data and model weights are available at [Zenodo](https://doi.org/1
 ```shell
 DeepMHCIIpro/
 │── configs/         # Configuration files (e.g., model parameters, training settings)
-│── bin/             # Executable python directory
 │── data/            # Dataset storage and preprocessing scripts (Extract DeepMHCIIpro-data.tar.gz File)
 │──── 5cv/           # 5 cross validation data
 │──── indep/         # independent data
@@ -36,7 +34,7 @@ DeepMHCIIpro/
 │── deepmhc/         # Core project code and implementation
 │──── models/        # weight directory
 │──────- mhcii/      # model weight path
-│── deepmhcii        # Executable python script
+│── deepmhcpro       # Executable python script
 │── README.md        # Project documentation
 │── requirements.txt # List of dependencies
 ```

@@ -30,12 +30,13 @@ setup(
     test_suite="nose.collector",
     tests_require=['nose'],
     install_requires=[
-                        'scipy==1.10.1',
-                        'scikit-learn==1.0.2',
-                        'click==8.0.4',
-                        'ruamel.yaml==0.16.12',
-                        'tqdm==4.62.3',
-                        'logzero==1.7.0',
-                        'torch==1.13.1'
+                        'scipy>=1.10.1',
+                        'scikit-learn>=1.0.2',
+                        'click>=8.0.4',
+                        'ruamel.yaml>=0.16.12',
+                        'tqdm>=4.62.3',
+                        'logzero>=1.7.0',
+                        'numpy>=1.22.4,<2.0'
+                        'torch>=1.13.1,<2.0'
                       ],
 )
