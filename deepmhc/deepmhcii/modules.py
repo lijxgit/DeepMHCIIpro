@@ -24,9 +24,6 @@ class IConv(nn.Module):
 
     def forward(self, peptide_x, mhc_x, masks=None, inversion=False, **kwargs):
         bs = peptide_x.shape[0]
-        
-        if masks.shape[0] > 9 and torch.sum(masks[0]) == 0:
-            masks = masks * (torch.zeros(masks.shape[0], masks.shape[1])) 
             
         if masks != None:
             kernel = F.relu(torch.einsum('nld,okl->nodk', mhc_x, self.weight * masks.to(self.weight.device).unsqueeze(0)))
