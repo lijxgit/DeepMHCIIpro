@@ -21,7 +21,7 @@ unzip model-weights.zip && mv mhcii/ deepmhc/models/
 ```
 
 ## Data and model weights
-The following data and model weights are available at [Zenodo](https://doi.org/10.5281/zenodo.15280831).
+The following data and model weights are available at [Zenodo](https://doi.org/10.5281/zenodo.15844437).
 
 ## Repo contents
 ```shell
